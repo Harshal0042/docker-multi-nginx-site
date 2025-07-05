@@ -1,0 +1,63 @@
+### Docker Installation & Setup on EC2
+sudo rpm -qa docker
+sudo yum install docker
+docker --version
+docker info
+sudo systemctl enable --now docker
+sudo systemctl status docker
+sudo usermod -aG docker ec2-user
+exit   (logout and log back in)
+
+### Docker Basic Commands
+docker ps
+docker images
+docker run -d nginx
+docker run -d --name con1 nginx
+docker stop <container-id>
+docker rm <container-id>
+docker ps -a
+docker run -d --name c1 -p 9001:80 nginx
+
+# Copying and Creating HTML Files
+nano index.html
+docker cp index.html c1:/usr/share/nginx/html/
+docker rm c1
+
+# Deploying HRMS on port 9001
+docker run -d --name hrms -p 9001:80 nginx
+docker cp index.html hrms:/usr/share/nginx/html/
+
+# Deploying Website on port 9002
+nano index2.html
+docker run -d --name website -p 9002:80 nginx
+docker cp index2.html website:/usr/share/nginx/html/
+docker exec -it website /bin/bash
+cd /usr/share/nginx/html/
+mv index2.html index.html
+exit
+
+# Testing with curl
+curl http://localhost:9001/
+curl http://localhost:9002/
+
+# Deploying Portfolio on port 9003
+nano portfolio.html
+docker run -d --name portfolio -p 9003:80 nginx
+docker cp portfolio.html portfolio:/usr/share/nginx/html/
+docker exec -it portfolio /bin/bash
+cd /usr/share/nginx/html/
+mv portfolio.html index.html
+exit
+
+---
+# SSH Access
+ssh -i .\Desktop\AWS\aws-key.pem ec2-user@<EC2-IP>
+
+# PEM Permission Fix on Windows
+# Run this in PowerShell (not in EC2):
+icacls aws-key.pem /inheritance:r /grant:r "%username%:F"
+
+# Cleanup
+rm index.html index2.html index3.html
+docker container rm portfolio hrms website
+
