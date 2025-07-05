@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Harshal Patil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #6366f1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    h2.section-title {
+      font-size: 2rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .project h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #334155;
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      font-size: 0.75rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #1e293b;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Harshal</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>AWS 3-Tier Architecture</h3>
+        <p>Designed and deployed a secure and scalable 3-tier web application using VPC, EC2, ALB, RDS, and NAT Gateways for high availability across zones.</p>
+        <div class="tags">
+          <span class="tag">AWS</span>
+          <span class="tag">VPC</span>
+          <span class="tag">Auto Scaling</span>
+          <span class="tag">Security Groups</span>
+        </div>
+      </div>
+      <div class="project">
+        <h3>CI/CD with GitHub Actions</h3>
+        <p>Built automated CI/CD pipelines with GitHub Actions to test, build and deploy Dockerized applications to AWS EC2 with zero-downtime.</p>
+        <div class="tags">
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+      <div class="project">
+        <h3>CloudWatch Monitoring Setup</h3>
+        <p>Implemented monitoring using AWS CloudWatch, including dashboards, alarms, and custom metrics for EC2, RDS and application logs.</p>
+        <div class="tags">
+          <span class="tag">CloudWatch</span>
+          <span class="tag">Metrics</span>
+          <span class="tag">Alarms</span>
+        </div>
+      </div>
+      <div class="project">
+        <h3>Inventory Management System</h3>
+        <p>Developed a full-stack application with CRUD APIs, integrated with PostgreSQL and hosted using Docker containers on AWS EC2.</p>
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">Docker</span>
+          <span class="tag">EC2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Harshal Patil • Built with HTML & 💙
+  </footer>
+
+</body>
+</html>
